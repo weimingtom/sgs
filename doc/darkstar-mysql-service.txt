@@ -1,0 +1,45 @@
+﻿InstallationInstructions   
+The following page will try to describe how to install the current version of the MySQLService/MySQLManager pair in PD using Eclipse as development environment. 
+Requirements
+You will need the following: 
+?ProjectDarkstar server (v 0.9.5) 
+?The MySQLService source-code and libraries - checked out in eclipse as a project from: http://darkstar-mysql-service.googlecode.com/svn/trunk 
+?MySQL (some version capable of doing transactions and InnoDB/BDB tables). 
+
+Step by step
+?Once you have checked out the project in eclipse, add it to your projects build-path. 
+?Setup your MySQL-server to have a user account with access to the database you want to use. 
+?In this database create the following table: 
+CREATE TABLE IF NOT EXISTS `sgs_queries` ( 
+  `uuid` char(36) NOT NULL, 
+  `date` datetime NOT NULL, 
+  PRIMARY KEY  (`uuid`) 
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;?Make sure that all your tables in the database are either InnoDB or BDB. 
+?Add the following lines (modified to match your settings) to your application properties file: 
+com.sun.sgs.app.services=net.gamalocus.sgs.services.mysql.MySQLService 
+com.sun.sgs.app.managers=net.gamalocus.sgs.services.mysql.MySQLManager 
+ 
+# MySQL database settings 
+net.gamalocus.sgs.services.mysql.MySQLService.dbhost=<dbhost> 
+net.gamalocus.sgs.services.mysql.MySQLService.dbname=<dbname> 
+net.gamalocus.sgs.services.mysql.MySQLService.dbuser=<dbuser> 
+net.gamalocus.sgs.services.mysql.MySQLService.dbpass=<dbpass>?Now fire up the PD-server to test if we at least get the MySQLService up and running (it will not connect until there is reason to). If it gets this far, it most likely works, but you have still to try something in the database. 
+?Now you can code your app, doing some SQL-queries: ExecutingQueries. 
+
+
+
+ ExecutingQueries   
+Explains how to execute MySQL queries from within PD with the MySQLManager 
+SELECT Queries
+To execute a select query you simple do the following: 
+MySQLManager myman = AppContext.getManager(MySQLManager.class); 
+ResultSet res = myman.executeSelect("SELECT * from account WHERE id=42");You should note however that the query is executed in the running PD-transaction, hence it is under the time limits of SGS. It is therefor important that you have good access to the MySQL server and you do not execute very long/big queries. 
+INSERT/UPDATE/REPLACE Queries?
+To execute an insert/update/replace query, you do the following: 
+MySQLManager myman = AppContext.getManager(MySQLManager.class); 
+myman.executeSQL("UPDATE account SET credit=20 WHERE id=42", "account updates");It is important to know that the SQL query is not executed immediately, but rather it is inserted into a queue and executed some time later (by a normal periodic task - this will change one day). The last parameter (queue_name) is the queue it is inserted to. The idea is that some data must be updated in-order, while other data might be updated asynchronously from this. 
+
+
+
+
+

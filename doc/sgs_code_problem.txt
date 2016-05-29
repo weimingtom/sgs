@@ -1,0 +1,35 @@
+﻿DataManager dataManager = AppContext.getDataManager();
+dataManager.markForUpdate(this);
+this.gameMap = ...
+this及其域进行写操作时需要标记
+一般出现在ManagedObject接口实现类中的
+private ManagedReference<?>私有成员的setter
+参考
+http://www.cnblogs.com/daidu/archive/2009/11/26/1611498.html
+
+
+把一个带用户名的数组绑定到一个ManagedObject上
+dataMgr.getBinding
+dataMgr.setBinding
+
+
+
+
+用户对象与用户session的字符串绑定，session再赋给用户对象作为成员，实现双向查询
+
+
+
+AppListenerImpl -> GameManager ->   Game ->
+                                  Channel/GameChannelListener -> 
+                                  
+                                  
+                                  
+删除对象的写法
+DataManager manager = AppContext.getDataManager();
+manager.markForUpdate(this);
+manager.removeObject(game.get());
+
+
+
+gameManager.createGame(Constants.UNIVERSAL_GAME_NAME);
+函数内完成了频道的创建		

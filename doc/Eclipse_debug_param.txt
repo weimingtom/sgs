@@ -1,0 +1,34 @@
+﻿Main class
+com.sun.sgs.impl.kernel.Kernel
+
+Program arguments
+./conf/sgsApp.properties
+
+VM arguments
+-Djava.library.path="./lib/natives/win32-x86" -Djava.util.logging.config.file="./conf/sgs-logging.properties" -Dcom.sun.sgs.config.file="./conf/sgs-config.properties"
+
+
+
+IE测试
+http://localhost/Astar.swf
+
+
+修改协议的版本，用于支持SGS的不同版本服务器
+.\flash_rpg\hudo\net\SgsProtocol.as
+public static const VERSION:int = 0x05;
+
+
+如果报class找不到的错误，请检查./conf/sgsApp.properties配置的类是否都编译了
+
+
+
+---------------------------------
+
+使用32bit的JRE
+./conf/mythologic-jgd-mmorpg.properties
+-Djava.library.path="./lib/natives/win32-x86" -Djava.util.logging.config.file="./conf/sgs-logging.properties" -Dcom.sun.sgs.config.file="./conf/sgs-config.properties"
+
+
+
+
+

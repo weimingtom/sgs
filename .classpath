@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="plugin/darkstar-datastructures"/>
+	<classpathentry kind="src" path="src/mythologic-jgd-mmorpg"/>
+	<classpathentry kind="src" path="src/stratego-game-server"/>
+	<classpathentry kind="src" path="src/hudo"/>
+	<classpathentry kind="src" path="src/sgs-http-protocol-client"/>
+	<classpathentry kind="src" path="plugin/sgs-http-protocol"/>
+	<classpathentry kind="src" path="src/sjtu-darkstar"/>
+	<classpathentry kind="src" path="plugin/darkstar-mysql-service"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/collections-generic-4.01.jar"/>
+	<classpathentry kind="lib" path="lib/commons-io-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang-2.5.jar"/>
+	<classpathentry kind="lib" path="lib/db-4.5.20.jar">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="sgs/lib/natives/win32-x86"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/je-3.3.75.jar"/>
+	<classpathentry kind="lib" path="lib/jung-api-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/jung-graph-impl-2.0.jar"/>
+	<classpathentry kind="lib" path="lib/mina-core-1.1.7.jar"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-boot.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-client-0.10.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-client.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-0.10.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-0.10.1.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-api-0.10.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-api-0.10.1.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-internal-api-0.10.1-sources.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-server-internal-api-0.10.1.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-shared-1.12-sources.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-shared-1.12.jar"/>
+	<classpathentry kind="lib" path="lib/sgs-stop.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.4.0.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-jdk14-1.4.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
